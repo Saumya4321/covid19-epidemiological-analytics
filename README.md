@@ -29,6 +29,11 @@ changes mid-timeline, and reporting artifacts.
 All three span different but overlapping windows between January 2020 and
 August 2021.
 
+
+## Tech Stack
+
+Python (pandas, numpy) · statsmodels · geopandas · Docker · Streamlit
+
 ---
 
 ## 1. Data Engineering
@@ -152,31 +157,8 @@ Live at: https://covid19-epidemiological-analytics.streamlit.app/
 
 ---
 
-## Tech Stack
 
-Python (pandas, numpy) · statsmodels · geopandas / shapely · QGIS · Docker · Streamlit
 
-## Project Structure
-
-```
-├── covid_19_india.csv
-├── StatewiseTestingDetails.csv
-├── covid_vaccine_statewise.csv
-├── covid_with_ratios.csv              # cleaned, merged, ratio-enriched output
-├── state_totals_for_maps.csv
-├── india_states_cleaned.geojson
-├── images/
-├── 01_data_cleaning.ipynb
-├── 02_epi_ratios.ipynb
-├── 03_time_series_analysis.ipynb
-├── 05_geospatial_analysis.ipynb
-├── dashboard/
-│   ├── app.py
-│   ├── data_loader.py
-│   ├── requirements.txt
-│   └── data/
-└── README.md
-```
 
 ## Running Locally
 
@@ -194,7 +176,3 @@ streamlit run app.py
 - The geospatial choropleths cannot distinguish Telangana from Andhra
   Pradesh, or Ladakh from Jammu and Kashmir, due to the source shapefile
   predating both administrative splits (see Section 4).
-- This project demonstrates methodology on public health surveillance data;
-  it has not been tested against livestock, veterinary, or agricultural
-  survey data specifically, though the underlying data harmonization and
-  rate-calculation workflow is directly transferable to that domain.
