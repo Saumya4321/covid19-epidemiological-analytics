@@ -6,8 +6,11 @@ Centralizes access to pre-processed outputs from the analysis notebooks
 import pandas as pd
 import geopandas as gpd
 import streamlit as st
+import os
 
-DATA_DIR = "../"  # analysis outputs live one level up, in covid_project/
+DASHBOARD_DIR = os.path.dirname(os.path.abspath(__file__))
+DATA_DIR = os.path.join(DASHBOARD_DIR, "data") + os.sep
+
 
 @st.cache_data
 def load_ratios_data() -> pd.DataFrame:
