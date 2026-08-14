@@ -130,10 +130,10 @@ resolving several real boundary-matching issues:
   entirely — a documented limitation, since the map can't visually
   distinguish these pairs.
 
-**Peak Test Positivity Rate**
+#### Peak Test Positivity Rate
 <img width="1200" height="1440" alt="choropleth_peak_positivity" src="https://github.com/user-attachments/assets/744c368c-3a6e-4d78-ad67-e91fe0a438a3" />
 Result: 33 of 34 states rendered with data; Lakshadweep has no positivity data in the source dataset. Maharashtra (20.7%) and Andhra Pradesh (22.0%, includes aggregated Telangana data) show the highest peak positivity, consistent with widely reported accounts of these states being among the hardest-hit during the pandemic, particularly the 2021 Delta wave. Note: Andhra Pradesh's figure reflects the combined AP+Telangana region due to the shapefile boundary limitation
-**Total Confirmed Cases**
+#### Total Confirmed Cases
 <img width="1200" height="1440" alt="choropleth_total_confirmed" src="https://github.com/user-attachments/assets/7665aa1d-8b49-44b6-8046-72c4109354ee" />
 Result: Maharastra dominant (~6.35M), consistent with the 1st map and widely reported case burden data.
 **Case Fatality Rate** — note this reveals a different pattern from the case
@@ -142,9 +142,7 @@ than Maharashtra, showing that case burden and fatality risk aren't the same
 signal.
 <img width="1200" height="1440" alt="choropleth_cfr" src="https://github.com/user-attachments/assets/d83d9dc4-185b-4cf4-a092-e318942ae218" />
 Result: Though Maharastra had the most number of confirmed cases, Punjab has the highest CFR (2.72%).
-**Vaccination Coverage Rate** — dominated by small-population union
-territories (Lakshadweep, Sikkim, Goa), a real and well-documented pattern
-of smaller populations reaching high per-capita coverage faster.
+#### Vaccination Coverage Rate 
 <img width="1200" height="1440" alt="choropleth_vaccination_rate" src="https://github.com/user-attachments/assets/89655bc3-48dc-45ae-bd71-0b811468e837" />
 Result: Dominated by small-population UTs — Lakshadweep (65%), Dadra and Nagar Haveli and Daman and Diu (52%), Sikkim (~50%). This is a real, well-documented pattern (smaller populations reach high per-capita coverage faster with less logistical complexity)
 ## 5. Interactive Dashboard
