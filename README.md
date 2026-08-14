@@ -84,9 +84,9 @@ model, weekly period) on the national daily new-case series:
   peaking ~September 2020 (~90K/day) and the much larger Delta wave peaking
   ~April–May 2021 (~400K/day).
 - **Weekly seasonality**: a strong, consistent pattern throughout the full
-  timeline. Contrary to an initial "weekend dip" hypothesis, the sharpest dip
-  is actually **Tuesday** (-7,028 below trend), with Thursday–Sunday
-  consistently elevated — pointing to a reporting lag concentrated early in
+  timeline. The sharpest dip
+  is  **Tuesday** (-7,028 below trend), with Thursday–Sunday
+  consistently elevated. This points to a reporting lag concentrated early in
   the week rather than simple weekend under-reporting.
 - Tested `model='multiplicative'` as an alternative; it failed outright,
   since multiplicative decomposition can't handle the 34 days with exactly
