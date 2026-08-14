@@ -1,3 +1,4 @@
+
 # COVID-19 Surveillance Analytics & Regional Risk Assessment — India
 
 An end-to-end data analytics project on India's COVID-19 pandemic data, covering
@@ -81,7 +82,8 @@ boundaries.
 **Trend decomposition** (`statsmodels.tsa.seasonal_decompose`, additive
 model, weekly period) on the national daily new-case series:
 
-![Trend Decomposition](images/trend_decomposition.png)
+<img width="1200" height="800" alt="trend_decomposition" src="https://github.com/user-attachments/assets/551b8277-c6ba-4c96-82e2-90c278d82494" />
+
 
 - **Trend**: clearly captures both of India's major waves — the first
   peaking ~September 2020 (~90K/day) and the much larger Delta wave peaking
@@ -114,6 +116,9 @@ uninteresting real-world relationship.
 
 ## 4. Geospatial Analysis
 
+
+
+
 Built choropleth maps using India state boundary shapefiles
 ([geohacker/india](https://github.com/geohacker/india)), which required
 resolving several real boundary-matching issues:
@@ -131,21 +136,21 @@ resolving several real boundary-matching issues:
   distinguish these pairs.
 
 **Peak Test Positivity Rate**
-![Peak Positivity](images/choropleth_peak_positivity.png)
+<img width="1200" height="1440" alt="choropleth_peak_positivity" src="https://github.com/user-attachments/assets/744c368c-3a6e-4d78-ad67-e91fe0a438a3" />
 
 **Total Confirmed Cases**
-![Total Confirmed](images/choropleth_total_confirmed.png)
+<img width="1200" height="1440" alt="choropleth_total_confirmed" src="https://github.com/user-attachments/assets/7665aa1d-8b49-44b6-8046-72c4109354ee" />
 
 **Case Fatality Rate** — note this reveals a different pattern from the case
 volume map: Punjab has the highest CFR (2.72%) despite far fewer total cases
 than Maharashtra, showing that case burden and fatality risk aren't the same
 signal.
-![CFR](images/choropleth_cfr.png)
+<img width="1200" height="1440" alt="choropleth_cfr" src="https://github.com/user-attachments/assets/d83d9dc4-185b-4cf4-a092-e318942ae218" />
 
 **Vaccination Coverage Rate** — dominated by small-population union
 territories (Lakshadweep, Sikkim, Goa), a real and well-documented pattern
 of smaller populations reaching high per-capita coverage faster.
-![Vaccination Rate](images/choropleth_vaccination_rate.png)
+<img width="1200" height="1440" alt="choropleth_vaccination_rate" src="https://github.com/user-attachments/assets/89655bc3-48dc-45ae-bd71-0b811468e837" />
 
 ## 5. Interactive Dashboard
 
