@@ -50,11 +50,6 @@ analysis-ready table.
   across the three files.
 - **Non-state placeholder rows** (`Unassigned`, `Cases being reassigned to
   states`) removed from the case data.
-- **Mixed/misdiagnosed date formats**: an initial fix incorrectly assumed
-  mixed date formats in the testing dataset and silently corrupted dates
-  (`dayfirst=True` misparsing `YYYY-MM-DD` strings) — caught by spotting an
-  implausible testing volume in what should have been early 2020, before
-  India's testing program existed at that scale.
 - **Column name whitespace** (`' Sites '` instead of `'Sites'`) and a
   **`pd.NA` vs `np.nan` dtype-corruption bug** that silently converted a
   clean numeric column to `object` dtype mid-analysis.
@@ -73,7 +68,7 @@ Computed four standard ratios per state, per day:
 All four sanity-checked against real-world reference figures: mean CFR
 (~1.3%) and mean growth rate (~3.1%/day) both align with widely reported
 figures for this period. Ratios were computed **per state** using
-`groupby('State')` before any `.diff()` or `.shift()` operation — a naive
+`groupby('State')` before any `.diff()` or `.shift()` operation; a naive
 ungrouped diff would silently compute nonsense values across state
 boundaries.
 
@@ -85,7 +80,7 @@ model, weekly period) on the national daily new-case series:
 <img width="1200" height="800" alt="trend_decomposition" src="https://github.com/user-attachments/assets/551b8277-c6ba-4c96-82e2-90c278d82494" />
 
 
-- **Trend**: clearly captures both of India's major waves — the first
+- **Trend**: clearly captures both of India's major waves; the first
   peaking ~September 2020 (~90K/day) and the much larger Delta wave peaking
   ~April–May 2021 (~400K/day).
 - **Weekly seasonality**: a strong, consistent pattern throughout the full
@@ -93,7 +88,7 @@ model, weekly period) on the national daily new-case series:
   is actually **Tuesday** (-7,028 below trend), with Thursday–Sunday
   consistently elevated — pointing to a reporting lag concentrated early in
   the week rather than simple weekend under-reporting.
-- Tested `model='multiplicative'` as an alternative — it failed outright,
+- Tested `model='multiplicative'` as an alternative; it failed outright,
   since multiplicative decomposition can't handle the 34 days with exactly
   zero reported cases in the dataset (mostly legitimate early-pandemic days,
   plus one confirmed data collection gap on 2021-03-11 where every state
@@ -102,14 +97,14 @@ model, weekly period) on the national daily new-case series:
 **Regression 1 — Vaccination Rate vs. Growth Rate**: coefficient = +0.054
 (p < 0.001), R² = 0.167. Vaccination rate is *positively* associated with
 growth rate — the opposite of the intuitive hypothesis. Very likely
-confounded: the vaccination-data window (Jan–Jun 2021) overlaps almost
+cause of confusion: the vaccination-data window (Jan–Jun 2021) overlaps almost
 entirely with the Delta wave, so this regression cannot separate
 "vaccination causing growth" from "both driven by the same wave." Treated
 as a demonstration that this data, structured this way, cannot answer the
-causal question — only describe a (confounded) correlation.
+causal question, only describe a (confounded) correlation.
 
 **Regression 2 — Confirmed vs. Cured cases**: R² = 0.995, coefficient =
-0.95. Included deliberately as a methodological contrast — a near-mechanical
+0.95. Included deliberately as a methodological contrast; a near-mechanical
 relationship used to confirm the regression approach itself is sound, since
 a weak result here would suggest a problem with the method rather than an
 uninteresting real-world relationship.
@@ -137,21 +132,21 @@ resolving several real boundary-matching issues:
 
 **Peak Test Positivity Rate**
 <img width="1200" height="1440" alt="choropleth_peak_positivity" src="https://github.com/user-attachments/assets/744c368c-3a6e-4d78-ad67-e91fe0a438a3" />
-
+Result: 33 of 34 states rendered with data; Lakshadweep has no positivity data in the source dataset. Maharashtra (20.7%) and Andhra Pradesh (22.0%, includes aggregated Telangana data) show the highest peak positivity, consistent with widely reported accounts of these states being among the hardest-hit during the pandemic, particularly the 2021 Delta wave. Note: Andhra Pradesh's figure reflects the combined AP+Telangana region due to the shapefile boundary limitation
 **Total Confirmed Cases**
 <img width="1200" height="1440" alt="choropleth_total_confirmed" src="https://github.com/user-attachments/assets/7665aa1d-8b49-44b6-8046-72c4109354ee" />
-
+Result: Maharastra dominant (~6.35M), consistent with the 1st map and widely reported case burden data.
 **Case Fatality Rate** — note this reveals a different pattern from the case
 volume map: Punjab has the highest CFR (2.72%) despite far fewer total cases
 than Maharashtra, showing that case burden and fatality risk aren't the same
 signal.
 <img width="1200" height="1440" alt="choropleth_cfr" src="https://github.com/user-attachments/assets/d83d9dc4-185b-4cf4-a092-e318942ae218" />
-
+Result: Though Maharastra had the most number of confirmed cases, Punjab has the highest CFR (2.72%).
 **Vaccination Coverage Rate** — dominated by small-population union
 territories (Lakshadweep, Sikkim, Goa), a real and well-documented pattern
 of smaller populations reaching high per-capita coverage faster.
 <img width="1200" height="1440" alt="choropleth_vaccination_rate" src="https://github.com/user-attachments/assets/89655bc3-48dc-45ae-bd71-0b811468e837" />
-
+Result: Dominated by small-population UTs — Lakshadweep (65%), Dadra and Nagar Haveli and Daman and Diu (52%), Sikkim (~50%). This is a real, well-documented pattern (smaller populations reach high per-capita coverage faster with less logistical complexity)
 ## 5. Interactive Dashboard
 
 Built with Streamlit, two pages:
