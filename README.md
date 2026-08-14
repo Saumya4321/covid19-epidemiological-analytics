@@ -96,23 +96,16 @@ model, weekly period) on the national daily new-case series:
 
 **Regression 1 — Vaccination Rate vs. Growth Rate**: coefficient = +0.054
 (p < 0.001), R² = 0.167. Vaccination rate is *positively* associated with
-growth rate — the opposite of the intuitive hypothesis. Very likely
+growth rate, which is the opposite of the intuitive hypothesis. Very likely
 cause of confusion: the vaccination-data window (Jan–Jun 2021) overlaps almost
 entirely with the Delta wave, so this regression cannot separate
-"vaccination causing growth" from "both driven by the same wave." Treated
-as a demonstration that this data, structured this way, cannot answer the
-causal question, only describe a (confounded) correlation.
+"vaccination causing growth" from "both driven by the same wave." 
 
 **Regression 2 — Confirmed vs. Cured cases**: R² = 0.995, coefficient =
-0.95. Included deliberately as a methodological contrast; a near-mechanical
-relationship used to confirm the regression approach itself is sound, since
-a weak result here would suggest a problem with the method rather than an
-uninteresting real-world relationship.
+0.95. For every 1 additional confirmed case (nationally, cumulative), ~0.95 additional cured cases follow.
+Near perfect linear fit. This is because a large majority of confirmed cases eventually resolve to cured within the dataset's timeframe.
 
 ## 4. Geospatial Analysis
-
-
-
 
 Built choropleth maps using India state boundary shapefiles
 ([geohacker/india](https://github.com/geohacker/india)), which required
