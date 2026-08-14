@@ -65,12 +65,19 @@ Computed four standard ratios per state, per day:
 | Case Fatality Ratio (CFR) | `Deaths / Confirmed` |
 | Recovery Rate | `Cured / Confirmed` |
 
-All four sanity-checked against real-world reference figures: mean CFR
-(~1.3%) and mean growth rate (~3.1%/day) both align with widely reported
-figures for this period. Ratios were computed **per state** using
+Ratios were computed **per state** using
 `groupby('State')` before any `.diff()` or `.shift()` operation; a naive
 ungrouped diff would silently compute nonsense values across state
 boundaries.
+
+#### Results
+| Ratio | Average  | Median | Maximum |
+|---|---| --- | --- |
+| Growth Rate | 3.1% | 0.6% | 14% |
+| Test Positivity Rate | 4.4% | 3.17% | 21.9% |
+| Case Fatality Ratio (CFR) | 1.3% | 1.2% | 50% |
+| Recovery Rate | 77.3% | 89.2% | 100% |
+
 
 ## 3. Time Series Analysis
 
