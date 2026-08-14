@@ -140,7 +140,7 @@ Result: Maharastra dominant (~6.35M), consistent with the 1st map and widely rep
 
 
 #### Case Fatality Rate
-than Maharashtra, showing that 
+
 <img width="1200" height="1440" alt="choropleth_cfr" src="https://github.com/user-attachments/assets/d83d9dc4-185b-4cf4-a092-e318942ae218" />
 Result: Though Maharastra had the most number of confirmed cases, Punjab has the highest CFR (2.72%). This shows that case burden and fatality risk aren't the same
 signal.
